@@ -1,4 +1,4 @@
-﻿/*
+/*
 Завдання 1.
   Дано два масиви : А[M] і B[N](M і N вводяться з клавіатури).
  Необхідно створити третій масив мінімально можливого розміру, у якому потрібно зібрати
@@ -11,36 +11,11 @@
 
 using namespace std;
 
-void inputArr(int* arr, int size) {
-    for (int i = 0; i < size; i++) {
-        arr[i] = rand() % 50;
-    }
-}
+void inputArr(int* arr, int size);
 
+void prtArr(const int* arr, const int size);
 
-void prtArr(const int* arr, const int size) {
-    for (int i = 0; i < size; i++) {
-        cout << "\t arr [" << i << "] =" << " " << arr[i] << ";" << endl;
-    }
-}
-
-
-void prt1Arr(int* arr, const int size, int* arr1, const int size1, int*& nArr, int& nSize) {
-    int l = 0;
-    for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size1; j++) {
-            if (arr[i] == arr1[j]) {
-                break;
-            }
-            else if (j == size1 - 1) {
-                nArr[l] = arr[i];
-                l++;
-            }
-        }
-    }
-    nSize = l;
-}
-
+void prt1Arr(int* arr, const int size, int* arr1, const int size1, int*& nArr, int& nSize);
 
 int main() {
     srand(time(NULL));
@@ -76,4 +51,35 @@ int main() {
     delete[]arr;
     delete[]arr1;
     delete[]nArr;
+}
+
+
+void inputArr(int* arr, int size) {
+    for (int i = 0; i < size; i++) {
+        arr[i] = rand() % 50;
+    }
+}
+
+
+void prtArr(const int* arr, const int size) {
+    for (int i = 0; i < size; i++) {
+        cout << "\t arr [" << i << "] =" << " " << arr[i] << ";" << endl;
+    }
+}
+
+
+void prt1Arr(int* arr, const int size, int* arr1, const int size1, int*& nArr, int& nSize) {
+    int l = 0;
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size1; j++) {
+            if (arr[i] == arr1[j]) {
+                break;
+            }
+            else if (j == size1 - 1) {
+                nArr[l] = arr[i];
+                l++;
+            }
+        }
+    }
+    nSize = l;
 }
